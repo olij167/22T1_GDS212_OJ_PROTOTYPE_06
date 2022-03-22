@@ -10,22 +10,33 @@ public class NavigationController : MonoBehaviour
 
     public Button startButton, quitButton, restartButton;
 
-    public GameObject gameTitle;
+    public GameObject startUI;
+
+    public string sceneName;
+
+    public TutorialUIController tutorialUIController;
 
     private void Start()
     {
         player.enabled = false;
+        tutorialUIController.enabled = false;
 
-        //Time.timeScale = ;
+        Time.timeScale = 0f;
     }
     public void StartGame()
     {
         player.enabled = true;
+        tutorialUIController.enabled = true;
+
+
+        Time.timeScale = 1f;
+
+        startUI.gameObject.SetActive(false);
     }
 
     public void RestartGame()
     {
-
+        SceneManager.LoadScene(sceneName);
     }
 
     public void QuitGame()

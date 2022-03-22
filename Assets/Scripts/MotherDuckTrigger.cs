@@ -17,7 +17,7 @@ public class MotherDuckTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && !motherDuckReached)
         {
 
             if (narrator.isPlaying)
@@ -25,7 +25,7 @@ public class MotherDuckTrigger : MonoBehaviour
                 narrator.Stop();
             }
 
-            if (!narrator.isPlaying && !motherDuckReached)
+            if (!narrator.isPlaying)
             {
                 narrator.PlayOneShot(reunitedWithMotherAudio);
             }

@@ -88,6 +88,9 @@ public class OfficeTrigger : MonoBehaviour
 
     public void EarlyTime()
     {
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+
         if (time.timeHours <= time.startTimeHours && time.timeMinutes <= time.startTimeMinutes)
         {
             attendanceText.text = "Mike was early by " + (time.startTimeHours - time.timeHours).ToString("00") + " hours, " + (time.startTimeMinutes - time.timeMinutes).ToString("00") + " minutes and " + (time.startTimeSeconds - time.timeSeconds).ToString("00") + " seconds";
@@ -97,6 +100,8 @@ public class OfficeTrigger : MonoBehaviour
 
     public void LateTime()
     {
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
         if (time.lateTimer >= 0f)
         {
             if (time.lateTimer < 60f)
